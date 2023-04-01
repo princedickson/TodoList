@@ -1,6 +1,6 @@
 package com.security.TodoList.Event;
 
-import com.security.TodoList.Entity.uUser;
+import com.security.TodoList.Entity.User;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.context.ApplicationEvent;
@@ -9,10 +9,10 @@ import org.springframework.context.ApplicationEvent;
 @Setter
 public class RegistrationCompleteEvent extends ApplicationEvent {
 
-    private uUser user;
+    private User user;
     private String applicationUrl;
 
-    public RegistrationCompleteEvent(uUser user, String applicationUrl) {
+    public RegistrationCompleteEvent(User user, String applicationUrl) {
         super ( user );
         this.user = user;
         this.applicationUrl = applicationUrl;

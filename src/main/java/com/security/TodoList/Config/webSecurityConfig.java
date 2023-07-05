@@ -18,7 +18,12 @@ public class webSecurityConfig  {
 
     private static final String[] WHITE_LIST_LABEL ={
             "/hello",
-            "/register"
+            "/register*",
+            "/verifyRegistration",
+            "/resendToken",
+            "/restPassword",
+            "/savePassword",
+            "/changePassword"
 
     };
     @Bean

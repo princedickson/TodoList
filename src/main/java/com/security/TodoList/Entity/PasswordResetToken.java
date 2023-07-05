@@ -1,6 +1,5 @@
 package com.security.TodoList.Entity;
 
-
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,7 +10,8 @@ import java.util.Date;
 @Entity
 @Data
 @NoArgsConstructor
-public class VerificationToken {
+public class PasswordResetToken {
+
     private static final  int EXPIRATION_TIME = 10;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,16 +25,16 @@ public class VerificationToken {
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false,
-            foreignKey = @ForeignKey(name = "FK_USER_VERIFY_TOKEN"))
+            foreignKey = @ForeignKey(name = "FK_USER_PASSWORD_TOKEN"))
     private User user;
 
-    public VerificationToken(User user, String token) {
+    public PasswordResetToken(User user, String token) {
         this.token = token;
         this.expirationTime = calculateExpirationDate(EXPIRATION_TIME);
         this.user = user;
     }
 
-    public VerificationToken(String token) {
+    public PasswordResetToken(String token) {
         this.token = token;
         this.expirationTime = calculateExpirationDate ( EXPIRATION_TIME );
     }
